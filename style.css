@@ -1,0 +1,102 @@
+html {
+    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: rgba(128, 125, 125, 0.116);
+    color: white;
+}
+
+div,
+form {
+    background-color: #475CA0;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 60px;
+    margin: 0 0 40px;
+}
+
+div {
+    padding: 40px;
+    font-weight: 100;
+    font-size: 30px;
+    margin: 0 0 40px;
+}
+
+form {
+    padding: 30px;
+
+}
+
+table {
+    min-width: 100%;
+    color: black;
+    border-collapse: separate;
+    border: 1px solid white;
+    border-radius: 10px;
+    text-align: center;
+    border-spacing: 5px 10px;
+}
+
+th {
+    background-color: white;
+    padding: 5px;
+    border: 1px solid #475CA0;
+    border-radius: 60px;
+    font-weight: 100;
+}
+
+thead th:nth-child(1) {
+    width: 45%;
+}
+
+thead th:nth-child(2) {
+    width: 20%;
+}
+
+thead th:nth-child(3) {
+    width: 7%;
+}
+
+thead th:nth-child(4) {
+    width: 10%;
+}
+
+td {
+    color: white;
+    background-color: #475CA0;
+    border: 1px solid white;
+    border-radius: 60px;
+}
+
+input,
+select,
+button {
+    padding: 10px;
+    border: 1px solid whitesmoke;
+    border-radius: 4px;
+}
+
+select,
+button {
+    background-color: white;
+}
+
+.delete{
+    margin: 10px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    background-color: white;
+    color: black;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+img {
+    height: 30px
+}

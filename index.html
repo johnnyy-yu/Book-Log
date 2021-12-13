@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Blank HTML</title>
+        <title>Personal Book Log</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="./Blank.css">
+        <link rel="stylesheet" href="./style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <div>Book Log</div>
         <form action="" id="form" onsubmit="return false">
             <input type="text" id="title" placeholder="Enter book title">
             <input type="text" id="author" placeholder="Enter book author">
-            <input type="text" id="pages" placeholder="Number of pages">
+            <input type="number" id="pages" placeholder="Number of pages">
             <select id="status">
                 <option value="Plan to Read">Plan to Read</option>
                 <option value="Currently Reading">Currently Reading</option>
                 <option value="Finished">Finished</option>
             </select>
-            <button type="submit" onclick="addBookToLibrary()">Add Book</button>
-            <button type="submit" onclick="deleteAll()">Erase Library</button>
+            <button class="options" type="submit" onclick="addBookToLibrary()">Add Book</button>
+            <button class="options" type="submit" onclick="deleteAll()">Erase Library</button>
         </form>
         <table>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Pages</th>
-                <th>Status</th>
-            </tr>
+            <thead>
+                <tr class="table-headings">
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Status</th>
+                    <th>Options</th>
+                </tr>
+            </thead>
         </table>
     </body>
+    <footer>
+        Created by johnnyy-yu
+        <a class="github" href="https://github.com/johnnyy-yu/Book-Log">
+            <img id="icon" src="./img/GitHub-Mark-64px.png">
+        </a>
+    </footer>
     <script src="./script.js"></script>
 </html>

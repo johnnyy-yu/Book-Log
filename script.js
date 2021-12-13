@@ -49,21 +49,34 @@ function addBookToTable () {
     table.append(tr);
 
     addBookInfo(newBook);
-    addDeleteButton(tr.id);
-    addChangeStatus(tr.id);
+    addOptions(tr.id)
+}
+
+function addOptions (bookID) {
+    let bookNumber = "#" + bookID;
+    let book = document.querySelector(bookNumber);
+    let td = document.createElement("td");
+
+    td.id = "options-container-" + bookID
+    book.appendChild(td);
+
+    addDeleteButton(bookID);
+    addChangeStatus(bookID);
 }
 
 function addDeleteButton(bookID) {
-    let bookNumber = "#" + bookID;
-    let book = document.querySelector(bookNumber);
+    let container= "#options-container-" + bookID;
+    let optionContainer = document.querySelector(container);
     let deleteButton = document.createElement("button");
+
+    deleteButton.className = "delete";
     deleteButton.id = "delete-" + bookID;
     deleteButton.textContent = "Delete";
     deleteButton.onclick = function () {
         deleteBook(bookID);
     }
 
-    book.append(deleteButton);
+    optionContainer.appendChild(deleteButton);
 }
 
 function addBookInfo(newBook) {
@@ -107,16 +120,18 @@ function deleteConfirmationPrompt () {
 //Change Status
 
 function addChangeStatus(bookID) {
-    let bookNumber = "#" + bookID;
-    let book = document.querySelector(bookNumber);
+    let optionsContainer = "#options-container-" + bookID;
+    let book = document.querySelector(optionsContainer);
     let statusButton = document.createElement("Select");
-    statusButton.id = "options"
+    statusButton.className = "change"
+    statusButton.id = "options-" + bookID
 
     book.appendChild(statusButton);
 
-    let status = document.querySelector("#options");
+    let x = "#" + statusButton.id
+    let status = document.querySelector(x);
 
-    status.options[0] = new Option ("Plan to read", "Plan to Read");
+    status.options[0] = new Option ("Plan to ead", "Plan to Read");
     status.options[1] = new Option ("Currently Reading", "Currently Reading");
     status.options[2] = new Option ("Finished", "Finished");
 
@@ -138,9 +153,9 @@ function changeStatus (book, bookID, currentStatus) {
     td.id = "status-" + bookID;
 
 
-    let targetElement = "delete-" + bookID;
+    let optionsContainer = "options-container-" + bookID;
     let parent = document.getElementById(bookID);
-    let elementBefore = document.getElementById(targetElement);
+    let elementBefore = document.getElementById(optionsContainer);
 
     parent.insertBefore(td, elementBefore);
 }
