@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blank HTML</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./Blank.css">
+    </head>
+    <body>
+        <form action="" id="form" onsubmit="return false">
+            <input type="text" id="title" placeholder="Enter book title">
+            <input type="text" id="author" placeholder="Enter book author">
+            <input type="text" id="pages" placeholder="Number of pages">
+            <select id="status">
+                <option value="Plan to Read">Plan to Read</option>
+                <option value="Currently Reading">Currently Reading</option>
+                <option value="Finished">Finished</option>
+            </select>
+            <button type="submit" onclick="addBookToLibrary()">Add Book</button>
+            <button type="submit" onclick="deleteAll()">Erase Library</button>
+        </form>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Pages</th>
+                <th>Status</th>
+            </tr>
+        </table>
+    </body>
+    <script src="./script.js"></script>
+</html>
