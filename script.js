@@ -1,3 +1,9 @@
+window.onload = () => {
+    for (let i = 0; i < localStorage.length; i++) {
+        addBookToTable(i);
+    }
+};
+
 function book (title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -9,7 +15,7 @@ function addBookToLibrary () {
     if (getBook() == false) {
         warningPrompt();
     } else {
-        addBookToTable();
+        addBookToTable(localStorage.length - 1);
         clearFields();
     }
 }
@@ -37,17 +43,16 @@ function warningPrompt() {
 
 //Table
 
-function addBookToTable () {
+function addBookToTable (number) {
     let table = document.querySelector("table");
     let tr = document.createElement("tr");
-    let newBook = localStorage.length - 1;
 
-    tr.id = "book" + newBook;
+    tr.id = "book" + number;
     tr.className = "book";
     table.append(tr);
 
-    addBookInfo(newBook);
-    addOptions(tr.id)
+    addBookInfo(number);
+    addOptions(tr.id);
 }
 
 function addOptions (bookID) {
@@ -92,7 +97,8 @@ function addBookInfo(newBook) {
             let td = document.createElement("td");
             td.textContent = storedBook[property];
             book.append(td);
-        }}
+        }
+    }
 }
 
 function deleteBook(bookID) {
