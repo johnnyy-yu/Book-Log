@@ -1,5 +1,3 @@
-let myLibrary = [];
-
 function book (title, author, pages, read) {
     this.title = title;
     this.author = author;
@@ -23,7 +21,7 @@ function getBook() {
     let status = document.getElementById("status").value;
 
     if (title && author && pages) {
-        myLibrary.push(new book(title, author, pages, status));
+        localStorage.setItem(`book${localStorage.length}`, JSON.stringify(new book(title, author, pages, status)));
     } else {
         return false;
     }
@@ -42,7 +40,7 @@ function warningPrompt() {
 function addBookToTable () {
     let table = document.querySelector("table");
     let tr = document.createElement("tr");
-    let newBook = myLibrary.length - 1;
+    let newBook = localStorage.length - 1;
 
     tr.id = "book" + newBook;
     tr.className = "book";
@@ -82,16 +80,17 @@ function addDeleteButton(bookID) {
 function addBookInfo(newBook) {
     let bookNumber = "#book" + newBook;
     let book = document.querySelector(bookNumber);
+    const storedBook = JSON.parse(localStorage.getItem(`book${newBook}`));
 
-    for (const property in myLibrary[newBook]) {
+    for (const property in storedBook) {
         if (property === "read") {
             let td = document.createElement("td");
             td.id = "status-book" + newBook;
-            td.textContent = myLibrary[newBook][property];
+            td.textContent = storedBook[property];
             book.append(td);
         }else {
             let td = document.createElement("td");
-            td.textContent = myLibrary[newBook][property];
+            td.textContent = storedBook[property];
             book.append(td);
         }}
 }
@@ -99,6 +98,7 @@ function addBookInfo(newBook) {
 function deleteBook(bookID) {
     let book = document.getElementById(bookID);
     book.remove();
+    localStorage.removeItem(bookID);
 }
 
 function deleteAll() {
@@ -110,6 +110,8 @@ function deleteAll() {
         while (allBooks.length > 0) {
             allBooks[0].remove();
         }
+
+        localStorage.clear();
     }
 }
 
@@ -135,9 +137,9 @@ function addChangeStatus(bookID) {
     status.options[1] = new Option ("Currently Reading", "Currently Reading");
     status.options[2] = new Option ("Finished", "Finished");
 
-    status.addEventListener("change", () => {
-        let currentStatus = getStatusChange(event);
-        changeStatus(book, bookID, currentStatus);
+    status.addEventListener("change", (e) => {
+        let currentStatus = getStatusChange(e);
+        changeStatus(bookID, currentStatus);
     })
 }
 
@@ -145,7 +147,7 @@ function getStatusChange (event) {
     return event.target.value;
 }
 
-function changeStatus (book, bookID, currentStatus) {
+function changeStatus (bookID, currentStatus) {
     removeStatus(bookID);
 
     let td = document.createElement("td");
@@ -158,6 +160,10 @@ function changeStatus (book, bookID, currentStatus) {
     let elementBefore = document.getElementById(optionsContainer);
 
     parent.insertBefore(td, elementBefore);
+
+    const book = JSON.parse(localStorage.getItem(bookID));
+    book.read = currentStatus;
+    localStorage.setItem(bookID, JSON.stringify(book));
 }
 
 function removeStatus (bookID) {
