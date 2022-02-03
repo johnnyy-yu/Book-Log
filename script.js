@@ -60,11 +60,12 @@ function addOptions (bookID) {
     let book = document.querySelector(bookNumber);
     let td = document.createElement("td");
 
+    td.className="options"
     td.id = "options-container-" + bookID
     book.appendChild(td);
 
-    addDeleteButton(bookID);
     addChangeStatus(bookID);
+    addDeleteButton(bookID);
 }
 
 function addDeleteButton(bookID) {
@@ -139,7 +140,7 @@ function addChangeStatus(bookID) {
     let x = "#" + statusButton.id
     let status = document.querySelector(x);
 
-    status.options[0] = new Option ("Plan to ead", "Plan to Read");
+    status.options[0] = new Option ("Plan to Read", "Plan to Read");
     status.options[1] = new Option ("Currently Reading", "Currently Reading");
     status.options[2] = new Option ("Finished", "Finished");
 

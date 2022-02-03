@@ -1,102 +1,101 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button {
+    border: 0;
+    background: none;
+    cursor: pointer;
+}
+
 html {
-    font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background-color: rgba(128, 125, 125, 0.116);
+    overflow: hidden;
+    height: 100vh;
+}
+
+header {
+    background-color: #1E2E61;
     color: white;
+    padding: 16px;
 }
 
-div,
-form {
-    background-color: #475CA0;
-    text-align: center;
-    border: 1px solid white;
-    border-radius: 60px;
-    margin: 0 0 40px;
-}
-
-div {
-    padding: 40px;
-    font-weight: 100;
-    font-size: 30px;
-    margin: 0 0 40px;
+body {
+    position: relative;
+    height: 100%;
 }
 
 form {
-    padding: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 0 6px 12px -12px grey;
+    padding: 10px;
+    margin-bottom: 20px;
+}
 
+
+main div {
+    overflow: auto;
 }
 
 table {
-    min-width: 100%;
-    color: black;
-    border-collapse: separate;
-    border: 1px solid white;
-    border-radius: 10px;
-    text-align: center;
-    border-spacing: 5px 10px;
+    width: 100%;
+    border: none;
 }
 
-th {
-    background-color: white;
-    padding: 5px;
-    border: 1px solid #475CA0;
-    border-radius: 60px;
-    font-weight: 100;
+input {
+    padding: 4px 12px; 
 }
 
-thead th:nth-child(1) {
-    width: 45%;
+.table-headings {
+    background-color: rgba(192, 192, 192, 0.473);
+    color: white;
+    height: 60px;
 }
 
-thead th:nth-child(2) {
-    width: 20%;
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
-thead th:nth-child(3) {
-    width: 7%;
-}
-
-thead th:nth-child(4) {
-    width: 10%;
+tr:nth-child(even) {
+    background-color: aliceblue;
 }
 
 td {
-    color: white;
-    background-color: #475CA0;
-    border: 1px solid white;
-    border-radius: 60px;
+    text-align: center;
+    height: 40px;
+    padding: 0 10px;
+    white-space: nowrap;
 }
 
-input,
-select,
-button {
-    padding: 10px;
-    border: 1px solid whitesmoke;
-    border-radius: 4px;
+.delete,
+.erase-all {
+    color: red;
 }
 
-select,
-button {
-    background-color: white;
-}
-
-.delete{
-    margin: 10px;
+.change {
+    border: 0;
+    background: none;
 }
 
 footer {
     position: absolute;
     bottom: 0;
-    right: 0px;
-    background-color: white;
-    color: black;
+    /* color: white; */
+    /* background-color: rgba(192, 192, 192, 0.178); */
     width: 100%;
-    padding: 20px;
+    padding: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    box-shadow: 3px 3px 6px silver;
 }
 
-img {
-    height: 30px
+footer img {
+    max-width: 30px;
 }

@@ -4,39 +4,47 @@
         <title>Personal Book Log</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style> * {font-family: "Raleway", serif}</style>
     </head>
     <body>
-        <div>Book Log</div>
-        <form action="" id="form" onsubmit="return false">
-            <input type="text" id="title" placeholder="Enter book title">
-            <input type="text" id="author" placeholder="Enter book author">
-            <input type="number" id="pages" placeholder="Number of pages">
-            <select id="status">
-                <option value="Plan to Read">Plan to Read</option>
-                <option value="Currently Reading">Currently Reading</option>
-                <option value="Finished">Finished</option>
-            </select>
-            <button class="options" type="submit" onclick="addBookToLibrary()">Add Book</button>
-            <button class="options" type="submit" onclick="deleteAll()">Erase Library</button>
-        </form>
-        <table>
-            <thead>
-                <tr class="table-headings">
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Pages</th>
-                    <th>Status</th>
-                    <th>Options</th>
-                </tr>
-            </thead>
-        </table>
+        <header>
+            <h1>Book Log</h1>
+        </header>
+        <main>
+            <form id="form">
+                <input type="text" id="title" placeholder="Enter book title">
+                <input type="text" id="author" placeholder="Enter book author">
+                <input type="number" id="pages" placeholder="Number of pages">
+                <select id="status">
+                    <option value="Plan to Read">Plan to Read</option>
+                    <option value="Currently Reading">Currently Reading</option>
+                    <option value="Finished">Finished</option>
+                </select>
+                <button class="add" type="button" onclick="addBookToLibrary()">Add Book</button>
+                <button class="erase-all" type="button" onclick="deleteAll()">Erase Library</button>
+            </form>
+            <div>
+                <table>
+                    <thead>
+                        <tr class="table-headings">
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Pages</th>
+                            <th>Status</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </main>
+        <footer>
+            Created by Jylx
+            <a class="github" href="https://github.com/jylx-x/Book-Log">
+                <img id="icon" src="./img/GitHub-Mark-64px.png">
+            </a>
+        </footer>
     </body>
-    <footer>
-        Created by johnnyy-yu
-        <a class="github" href="https://github.com/johnnyy-yu/Book-Log">
-            <img id="icon" src="./img/GitHub-Mark-64px.png">
-        </a>
-    </footer>
     <script src="./script.js"></script>
 </html>
